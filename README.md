@@ -214,14 +214,14 @@ In summary:
     git commit -m "Add dummy_file.txt for PR example"
     ```
 
-    This will create a commit in the `create_pr_example` branch.
+    This will create a commit in the `fourth_example_prs` branch.
 
 4. **Push the branch to GitHub**
 
-    Push the `create_pr_example` branch to the remote repository:
+    Push the `fourth_example_prs` branch to the remote repository:
 
     ```sh
-    git push -u origin create_pr_example
+    git push -u origin fourth_example_prs
     ```
 
     This will push the branch to GitHub and set the `origin` remote as the default for future pushes.
