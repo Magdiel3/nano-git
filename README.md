@@ -107,6 +107,8 @@ This code interacts with a Git repository. Below are the key concepts used in th
     First, ensure you are on the `master` branch and create a new branch named `add_third_example`:
 
     > NOTE: First command could be skipped as we were alreay on master branch.
+ 
+    > **IMPORTANT:** Always perform a `git pull` when creating a branch from master to avoid merging errors or diverging paths.
 
     ```sh
     git checkout master
