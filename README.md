@@ -99,3 +99,96 @@ This code interacts with a Git repository. Below are the key concepts used in th
     ```
 
     This will create a new commit with the `.gitignore` file and push it to the remote repository on GitHub.
+
+# Third example
+
+1. **Create a branch from master**
+
+    First, ensure you are on the `master` branch and create a new branch named `add_third_example`:
+
+    > NOTE: First command could be skipped as we were alreay on master branch.
+
+    ```sh
+    git checkout master
+    git branch add_third_example
+    ```
+
+    This will create a new branch called `add_third_example` based on the `master` branch.
+
+2. **Switch to the new branch**
+
+    Switch to the `add_third_example` branch:
+
+    ```sh
+    git checkout add_third_example
+    ```
+
+    This will switch your working directory to the `add_third_example` branch.
+
+3. **Make changes and commit**
+
+    Create a new file named `third_example.txt` and add some content to it:
+
+    ```sh
+    echo "This is the third example." >> third_example.txt
+    git add third_example.txt
+    git commit -m "Add third_example.txt with initial content"
+    ```
+
+    Modify the `third_example.txt` file:
+
+    ```sh
+    echo "Adding more content to the third example." >> third_example.txt
+    git add third_example.txt
+    git commit -m "Update third_example.txt with additional content"
+    ```
+
+    This will create two commits in the `add_third_example` branch.
+
+    > NOTE: All the `>>` steps could be thought of manually opening and editing a text file in a regular text editor, such as TextEditor or VSCode.
+
+4. **Merge changes to master**
+
+    Switch back to the `master` branch and merge the changes from `add_third_example`:
+
+    ```sh
+    git checkout master
+    git merge add_third_example
+    ```
+
+    This will merge the changes from the `add_third_example` branch into the `master` branch.
+
+## Notes on merge strategies
+
+- **Squash and merge**: This strategy combines all the commits from a feature branch into a single commit before merging it into the target branch. It is useful for keeping the commit history clean and concise. To perform a squash and merge, you can use the following command:
+
+    ```sh
+    git checkout master
+    git merge --squash add_third_example
+    git commit -m "Add third example"
+    ```
+
+- **Normal merge**: This strategy merges all the commits from the feature branch into the target branch, preserving the commit history. It is useful for maintaining a detailed history of changes. The command for a normal merge is:
+
+    ```sh
+        git checkout master
+        git merge add_third_example
+    ```
+
+This will merge the feature branch into the target branch without squashing the commits.
+
+## Notes on `--no-ff` flag
+
+The `--no-ff` flag ensures that a merge commit is always created, even if a fast-forward merge is possible. This helps preserve the history of feature branches.
+
+By default, Git performs a fast-forward merge if possible, which moves the branch pointer forward to the latest commit, resulting in a linear history.
+
+To set `--no-ff` as the default for all merges, use the following command:
+
+```sh
+git config --global merge.ff false
+```
+
+In summary:
+- `--no-ff`: Creates a merge commit, preserving branch history.
+- Default (without `--no-ff`): Performs a fast-forward merge if possible, resulting in a linear history.
