@@ -1,0 +1,1 @@
+File to have changes in master before a feature branch is merged
