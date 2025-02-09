@@ -67,3 +67,35 @@ This code interacts with a Git repository. Below are the key concepts used in th
 - **Push**: Push is the process of sending committed changes from your local repository to a remote repository. This updates the remote repository with your latest commits, making them available to other collaborators.
 - **Fetch**: Fetch is the process of downloading changes from a remote repository to your local repository. It updates your local copy of the remote branches, allowing you to see the latest changes made by others without merging them into your local branches.
 
+# Second example
+1. **Generate files to be ignored**
+
+    In your project directory, create 10 files named `ignore_file_0.txt` to `ignore_file_9.txt`:
+
+    ```sh
+    for i in {0..9}; do touch "ignore_file_$i.txt"; done
+    ```
+
+    This will create 10 empty files that match the pattern `ignore_file_*.txt`.
+
+2. **Create a `.gitignore` file**
+
+    In your project directory, create a file named `.gitignore` and add the following line to it:
+
+    ```sh
+    echo "ignore_file_*.txt" >> .gitignore
+    ```
+
+    This will ensure that any files matching the pattern `ignore_file_*.txt` are ignored by Git and not tracked in the repository.
+
+3. **Add and commit the `.gitignore` file**
+
+    Add the `.gitignore` file to the staging area, commit the changes, and push them to GitHub:
+
+    ```sh
+    git add .gitignore
+    git commit -m "Add .gitignore to ignore files matching ignore_file_*.txt"
+    git push
+    ```
+
+    This will create a new commit with the `.gitignore` file and push it to the remote repository on GitHub.
