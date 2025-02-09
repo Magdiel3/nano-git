@@ -225,6 +225,8 @@ In summary:
     ```
 
     This will push the branch to GitHub and set the `origin` remote as the default for future pushes.
+    >NOTE: We are using `GitHub` as the remote name instead of the deafult `origin`
+    > >Inside NOTE: This is very disruptive to standard practces and totally unnecessary, but this is a playground, do what you want.
 
 5. **Open a Pull Request (PR)**
 
