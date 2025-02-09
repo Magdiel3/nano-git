@@ -194,3 +194,51 @@ git config --global merge.ff false
 In summary:
 - `--no-ff`: Creates a merge commit, preserving branch history.
 - Default (without `--no-ff`): Performs a fast-forward merge if possible, resulting in a linear history.
+
+# Fourth example
+
+1. **Create a new branch**
+
+    Use steps from [previous example](#third-example) or you could do branch creation and switch in a single command as follows:
+    ```sh
+    git checkout -b fourth_example_prs
+    ```
+
+3. **Create a new dummy file and commit**
+
+    Create a new file named `dummy_file.txt` and add some content to it:
+
+    ```sh
+    echo "This is a dummy file for the PR example." >> dummy_file.txt
+    git add dummy_file.txt
+    git commit -m "Add dummy_file.txt for PR example"
+    ```
+
+    This will create a commit in the `create_pr_example` branch.
+
+4. **Push the branch to GitHub**
+
+    Push the `create_pr_example` branch to the remote repository:
+
+    ```sh
+    git push -u origin create_pr_example
+    ```
+
+    This will push the branch to GitHub and set the `origin` remote as the default for future pushes.
+
+5. **Open a Pull Request (PR)**
+
+    Go to your repository on GitHub. You should see a prompt to compare and create a pull request for the recently pushed branch. Click on `Compare & pull request`.
+
+    Fill in the PR title and description, then click on `Create pull request`.
+
+    For more detailed information, refer to the [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) on creating a pull request.
+
+## Notes on Pull Requests
+
+- **Review process**: PRs allow team members to review code changes before merging them into the main branch. This helps ensure code quality and catch potential issues early.
+- **Discussion and feedback**: PRs provide a platform for discussing changes, suggesting improvements, and providing feedback. This fosters collaboration and knowledge sharing within the team.
+- **Automated checks**: PRs can be integrated with continuous integration (CI) tools to run automated tests and checks. This helps ensure that changes do not introduce new issues or break existing functionality.
+- **Merge options**: When merging a PR, you can choose from different merge options such as `Merge`, `Squash and merge`, or `Rebase and merge`. Each option has its own benefits and use cases, as discussed in the previous examples.
+
+By following these steps and considerations, you can effectively create and manage pull requests in GitHub, facilitating collaboration and maintaining code quality in your projects.
